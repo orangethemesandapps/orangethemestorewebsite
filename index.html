@@ -52,43 +52,53 @@
       <h2>Contact Us</h2>
 <form>
   <label for="name">Name:</label>
-  <input id="name" name="name" type="text"/><br/><br/>
+  <input name="name" type="text"/><br/><br/>
   <label for="email">Email:</label>
-  <input id="email" name="email" type="email"/><br/><br/>
-  <label for="subject">Subject:</label>
-  <input id="subject" name="subject" type="text"/><br/><br/>
+  <input name="email" type="email"/><br/><br/>
   <label for="name">Message:</label>
-  <textarea id="message" name="message"></textarea><br/><br/>
-  <button id="submitbtn" type="button">Submit Email</button>
+  <textarea name="message"></textarea><br/><br/>
+  <input type="submit"/>
   <div>
     <p id="result-text"></p>
   </div>
 </form>
     </div>
   </div>
-  <script src="https://smtpjs.com/v3/smtp.js">
-  </script>
-    <script type="text/javascript">
-   document.getElementById("submitbtn").addEventListener("click", function() {
-      var _name = document.getElementById('name').value;
-      var _fromemail = document.getElementById('email').value;
-      var _message = document.getElementById('name').value;
-      var _subject = document.getElementById('subject').value;
-      var _message = document.getElementById('message').value;
-      Email.send({
-      Host : "smtp.gmail.com",
-      Username : "orangethemesandapps@gmail.com",
-      Password : "wgcjteukvbjzifga",
-      To : 'orangethemeshelpdesk@gmail.com',
-      From : _fromemail,
-      Subject : _name + " : " + _subject,
-      Body : _message
-    }).then(
-    message => alert(message)
-    );
+  <script type="text/javascript">
+  const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+  // prevent the form submit from refreshing the page
+  event.preventDefault();
+
+  const { name, email, message } = event.target;
+
+	// Use your API endpoint URL you copied from the previous step
+  const endpoint = "https://a4s2krggd9.execute-api.us-east-1.amazonaws.com/default/ContactFormFunction";
+  // We use JSON.stringify here so the data can be sent as a string via HTTP
+	const body = JSON.stringify({
+    senderName: name.value,
+    senderEmail: email.value,
+    message: message.value
+  });
+  const requestOptions = {
+    method: "POST",
+    body
+  };
+
+  fetch(endpoint, requestOptions)
+    .then((response) => {
+      if (!response.ok) throw new Error("Error in fetch");
+      return response.json();
+    })
+    .then((response) => {
+      document.getElementById("result-text").innerText =
+        "Email sent successfully!";
+    })
+    .catch((error) => {
+      document.getElementById("result-text").innerText =
+        "An unkown error occured.";
     });
-
-
+}); 
   </script>
 </body>
 </html>
