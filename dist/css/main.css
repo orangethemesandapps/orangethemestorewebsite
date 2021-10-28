@@ -10954,7 +10954,7 @@ a.text-dark:focus {
 .jumbotron .cover {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
   position: absolute;
   top: 0;
   left: 0;
@@ -11838,4 +11838,8 @@ ul.nav.categories-nav li.open ul {
 .buybuttondiv
 {
   margin-top: 50px;
+}
+.cover
+{
+  background-color: #FCD5CE;
 }
