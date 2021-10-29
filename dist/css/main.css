@@ -203,7 +203,7 @@ sup {
 }
 
 a {
-  color: #26abc8;
+  color: #000;
   text-decoration: none;
   background-color: transparent;
 }
@@ -605,6 +605,10 @@ pre code {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
+}
+.containerdiv
+{
+  min-height: calc(100vh - 20px);
 }
 
 .container,
@@ -10938,7 +10942,7 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
+/** Bootstrap End ***/
 .jumbotron {
   margin-bottom: 0;
   background: #26abc8 center center no-repeat;
@@ -11854,4 +11858,9 @@ ul.nav.categories-nav li.open ul {
 .categoryicon
 {
   font-size: 40px;
+}
+footer {
+  padding: 20px;
+  background-color: #FCD5CE;
+  color: #000;
 }
