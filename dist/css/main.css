@@ -7537,9 +7537,9 @@ button.bg-dark:focus {
   justify-content: flex-end !important;
 }
 
-.justify-content-center {
+/*.justify-content-center {
   justify-content: center !important;
-}
+}*/
 
 .justify-content-between {
   justify-content: space-between !important;
