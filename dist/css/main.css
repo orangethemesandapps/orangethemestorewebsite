@@ -11391,7 +11391,7 @@ a > .card:hover {
 
 .section {
   padding-top: 1rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   background-color: #fff;
 }
 
@@ -11622,7 +11622,7 @@ h1.article-heading {
 
 .content .heading {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .content .toc-widget {
@@ -11813,13 +11813,13 @@ ul.nav.categories-nav li.open ul {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 4px;
   position: relative;
   background-color: #373A3C;
   border: none;
   color: #fff;
-  padding: 20px;
+  padding: 15px;
   width: 200px;
   text-align: center;
   transition-duration: 0.4s;
@@ -11842,4 +11842,16 @@ ul.nav.categories-nav li.open ul {
 .cover
 {
   background-color: #FCD5CE;
+}
+.categorycard
+{
+  height: 180px;
+}
+.categorycard i
+{
+  font-size:2.5rem;
+}
+.categoryicon
+{
+  font-size: 40px;
 }
