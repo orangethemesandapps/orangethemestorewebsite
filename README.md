@@ -2,4 +2,4 @@
 
 ## License
 
-Licensed under GNU General Public License v3.0 License
+Licensed under CC-BY-4.0 License
