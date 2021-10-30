@@ -5019,8 +5019,16 @@ input[type=button].btn-block {
 
 .card-title {
   margin-bottom: 0.75rem;
+  
 }
-
+.card-title-main
+{
+  padding-top: 5px;
+}
+.card-body img
+{
+  padding-bottom: 20px;
+}
 .card-subtitle {
   margin-top: -0.375rem;
   margin-bottom: 0;
@@ -11328,9 +11336,14 @@ a.card-link:hover {
 
 a.card-link:hover .card {
   background-color: #373a3c;
-  color: #f5f5f5;
+  color: #fff;
+  
 }
-
+a.theme-card-link:hover .card {
+  background-color: #000!important;
+  color: #fff;
+  box-shadow: 0 2px 2px #000;
+}
 a.card-link .card {
   background-color: #f8edeb;
 }
@@ -11625,7 +11638,7 @@ h1.article-heading {
 }
 
 .content .heading {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
@@ -11896,4 +11909,16 @@ footer {
   padding: 20px;
   background-color: #FCD5CE;
   color: #000;
+}
+i
+{
+  font-family: 'Font Awesome 5 Pro';
+}
+miniitalic
+{
+  font-size: 12px;
+}
+miniitalic i
+{
+  font-size: 18px!important;
 }
