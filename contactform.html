@@ -238,7 +238,7 @@ button {
     var data = "name=Muthu&replytoemail=cupelapps%40gmail.com&storeurl=shopthelook.myshopify.com&messagetext=Hi%2C%20This%20is%20enquiry%20about%20theme%20feature%20sets.%20kindly%20explain%20the%20features%20sets.";
 
     var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+   
 
     xhr.addEventListener("readystatechange", function() {
     if(this.readyState === 4) {
@@ -246,10 +246,11 @@ button {
     }
     });
 
-    xhr.open("POST", "https://mail.orangethemesandapps.com/sendemail");
+    /*xhr.open("POST", "https://mail.orangethemesandapps.com/sendemail");*/
+    xhr.open("POST", "http://localhost:5000/sendemail");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.send(data);
+    xhr.send();
   });
      /* _submitbtn.addEventListener("click", function(e){
          // Create an XMLHttpRequest object
