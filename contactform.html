@@ -140,6 +140,52 @@ button {
   width: 100%;
   margin-bottom: 30px;
 }
+/* This is the space for the spinner to appear, applied to the button */
+.spin {
+  padding-left: 2.5em;
+  display: block;
+}
+
+/* position of the spinner when it appears, you might have to change these values */
+.spin .spinner {
+  left: -.6em;
+  top: .4em;
+  width: 2.5em;
+  display: block;
+  position: absolute;
+}
+
+/* spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* The actual spinner element is a pseudo-element */
+.spin .spinner::before {
+  content: "";
+  width: 1.5em; /* Size of the spinner */
+  height: 1.5em; /* Change as desired */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: solid .35em #999; /* Thickness/color of spinner track */
+  border-bottom-color: #555; /* Color of variant spinner piece */
+  animation: .8s linear infinite spinner; /* speed of spinner */
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* optional, but it will affect the size if changed */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
       </style>
   </head>
   <body>
@@ -173,7 +219,7 @@ button {
     <div class="container" style="padding-left: 150px; padding-right: 150px;">
       <div class="row content section white-background">
         <div class="contactForm">
-          <form action="https://mail.orangethemesandapps.com/sendemail" method="post" id="contact-form">
+          <form id="sendemailform" action="https://mail.orangethemesandapps.com/sendemail" method="post" id="contact-form">
               <div class="inputGroup inputGroup1">
                 <input class="inputGroup__textfield" type="text" name="name" value="" placeholder="Firstname*" required data-value-missing="Please fill out this field.">
               </div>
@@ -205,7 +251,7 @@ button {
                 <input class="inputGroup__textfield" type="hidden" name="orangethemes" value="">
               </div>
               <div class="inputGroup inputGroup7">
-                <button id="contactsubmitbtn" type="submit" name="button">Send</button>
+                <button id="contactsubmitbtn" type="button" onclick="sendEmailFunction()" name="button">Send</button>
                 <!--<button id="contactsubmitbtn" class="g-recaptcha" data-sitekey="6LdDlgAdAAAAAJ4Rf6RT6mBzbaRBgFBmQbKqoA_-" data-callback='onSubmit' type="submit" name="button">Send</button>-->
               </div>
           </form>
@@ -234,6 +280,16 @@ button {
         document.getElementById("contact-form").submit();
       }
       var _submitbtn = document.getElementById('contactsubmitbtn');
+      _submitbtn.addEventListener("click", function(e){
+        _submitbtn.classList.add('spin');
+        _submitbtn.disabled = true;
+      });
+      function sendEmailFunction()
+      {
+        var _sendemailform = document.getElementById('sendemailform');
+        _sendemailform.submit();
+        window.location = 'https://orangethemesandapps.com';
+      }
       /*_submitbtn.addEventListener("click", function(e){
     var data = "name=Muthu&replytoemail=cupelapps%40gmail.com&storeurl=shopthelook.myshopify.com&messagetext=Hi%2C%20This%20is%20enquiry%20about%20theme%20feature%20sets.%20kindly%20explain%20the%20features%20sets.";
 
