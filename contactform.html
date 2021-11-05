@@ -57,12 +57,16 @@ form {
     grid-column: 1 / span 2;
     grid-row: 5;
 }
-  }
+  
   .inputGroup8 {
-    grid-column: 2;
-      grid-row: 6;
-      text-align: right;
+    grid-column: 1 / span 2;
+    grid-row: 6;
   }
+  .inputGroup9 {
+    grid-column: 1 / span 2;
+    grid-row: 7;
+  }
+
   
 .inputGroup__textfield {
     -webkit-appearance: none;
@@ -207,7 +211,11 @@ button {
                 <a style="text-decoration: underline; text-underline-offset: 3px; padding-left: 2px;">Attach Files</a>
               </div>
               <div class="inputGroup inputGroup8">
-                <button class="g-recaptcha" data-sitekey="6LdDlgAdAAAAAJ4Rf6RT6mBzbaRBgFBmQbKqoA_-" data-callback='onSubmit' type="submit" name="button">Send</button>
+                <input class="inputGroup__textfield" type="hidden" name="orangethemes" value="">
+              </div>
+              <div class="inputGroup inputGroup9">
+                <button id="contactsubmitbtn" type="button" name="button">Send</button>
+                <!--<button id="contactsubmitbtn" class="g-recaptcha" data-sitekey="6LdDlgAdAAAAAJ4Rf6RT6mBzbaRBgFBmQbKqoA_-" data-callback='onSubmit' type="submit" name="button">Send</button>-->
               </div>
           </form>
       </div>
@@ -234,6 +242,21 @@ button {
       function onSubmit(token) {
         document.getElementById("contact-form").submit();
       }
+      var _submitbtn = document.getElementById('contactsubmitbtn');
+      _submitbtn.addEventListener("click", function(e){
+         // Create an XMLHttpRequest object
+          const xhttp = new XMLHttpRequest();
+
+          // Define a callback function
+          xhttp.onload = function() {
+            // Here you can use the Data
+            alert('submitted')
+          }
+
+          // Send a request
+          xhttp.open("GET", "https://mail.orangethemesandapps.com");
+          xhttp.send();
+      });
     </script>
     
   </body>

@@ -11922,3 +11922,7 @@ miniitalic i
 {
   font-size: 18px!important;
 }
+.homepage-listing li:focus
+{
+  text-decoration: underline;
+}
