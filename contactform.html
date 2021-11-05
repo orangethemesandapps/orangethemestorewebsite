@@ -205,7 +205,7 @@ button {
                 <input class="inputGroup__textfield" type="hidden" name="orangethemes" value="">
               </div>
               <div class="inputGroup inputGroup7">
-                <button id="contactsubmitbtn" type="submit" name="button">Send</button>
+                <button id="contactsubmitbtn" type="button" name="button">Send</button>
                 <!--<button id="contactsubmitbtn" class="g-recaptcha" data-sitekey="6LdDlgAdAAAAAJ4Rf6RT6mBzbaRBgFBmQbKqoA_-" data-callback='onSubmit' type="submit" name="button">Send</button>-->
               </div>
           </form>
@@ -234,6 +234,23 @@ button {
         document.getElementById("contact-form").submit();
       }
       var _submitbtn = document.getElementById('contactsubmitbtn');
+      _submitbtn.addEventListener("click", function(e){
+    var data = "name=Muthu&replytoemail=cupelapps%40gmail.com&storeurl=shopthelook.myshopify.com&messagetext=Hi%2C%20This%20is%20enquiry%20about%20theme%20feature%20sets.%20kindly%20explain%20the%20features%20sets.";
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+      console.log(this.responseText);
+    }
+    });
+
+    xhr.open("POST", "https://mail.orangethemesandapps.com/sendemail");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send(data);
+  });
      /* _submitbtn.addEventListener("click", function(e){
          // Create an XMLHttpRequest object
           const xhttp = new XMLHttpRequest();
