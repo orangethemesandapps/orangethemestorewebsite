@@ -30,43 +30,34 @@ form {
 }
 
   .inputGroup1 {
-      grid-column: 1;
+    grid-column: 1 / span 2;
       grid-row: 1;
   }
   .inputGroup2 {
-      grid-column: 2;
-      grid-row: 1;
+    grid-column: 1 / span 2;
+      grid-row: 2;
   }
   .inputGroup3 {
-      grid-column: 1;
-      grid-row: 2;
-  }
-  .inputGroup4 {
-      grid-column: 2;
-      grid-row: 2;
-  }
-  .inputGroup5 {
-      grid-column: 1 / span 2;
+    grid-column: 1 / span 2;
       grid-row: 3;
   }
-  .inputGroup6 {
+  .inputGroup4 {
       grid-column: 1 / span 2;
       grid-row: 4;
   }
-  .inputGroup7 {
+  .inputGroup5 {
     grid-column: 1 / span 2;
     grid-row: 5;
 }
   
-  .inputGroup8 {
+  .inputGroup6 {
     grid-column: 1 / span 2;
     grid-row: 6;
   }
-  .inputGroup9 {
+  .inputGroup7 {
     grid-column: 1 / span 2;
     grid-row: 7;
   }
-
   
 .inputGroup__textfield {
     -webkit-appearance: none;
@@ -182,38 +173,38 @@ button {
     <div class="container" style="padding-left: 150px; padding-right: 150px;">
       <div class="row content section white-background">
         <div class="contactForm">
-          <form action="" id="contact-form">
+          <form action="https://mail.orangethemesandapps.com/sendemail" id="contact-form">
               <div class="inputGroup inputGroup1">
-                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Firstname*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" name="name" value="" placeholder="Firstname*" required data-value-missing="Please fill out this field.">
               </div>
+      
+              <!--<div class="inputGroup inputGroup2">
+                <input class="inputGroup__textfield" type="text" name="lastname" value="" placeholder="Lastname*" required data-value-missing="Please fill out this field.">
+              </div>-->
       
               <div class="inputGroup inputGroup2">
-                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Lastname*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" name="replytoemail" value="" placeholder="Email*" required data-value-missing="Please fill out this field.">
               </div>
       
+            <!--  <div class="inputGroup inputGroup3">
+                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Phone" required data-value-missing="Please fill out this field.">
+              </div>
+      -->
               <div class="inputGroup inputGroup3">
-                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Email*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" name="storeurl" value="" placeholder="Shopify Store URL*" required data-value-missing="Please fill out this field.">
               </div>
       
               <div class="inputGroup inputGroup4">
-                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Phone" required data-value-missing="Please fill out this field.">
-              </div>
-      
-              <div class="inputGroup inputGroup5">
-                <input class="inputGroup__textfield" type="text" name="" value="" placeholder="Shopify Store URL*" required data-value-missing="Please fill out this field.">
-              </div>
-      
-              <div class="inputGroup inputGroup6">
-                <textarea class="inputGroup__textfield" name="name" rows="8" placeholder="How can we help?*" required data-value-missing="Please fill out this field."></textarea>
+                <textarea class="inputGroup__textfield" name="messagetext" rows="8" placeholder="How can we help?*" required data-value-missing="Please fill out this field."></textarea>
               </div>
 
-              <div class="inputGroup inputGroup7">
+              <div class="inputGroup inputGroup5">
                 <a style="text-decoration: underline; text-underline-offset: 3px; padding-left: 2px;">Attach Files</a>
               </div>
-              <div class="inputGroup inputGroup8">
+              <div class="inputGroup inputGroup6">
                 <input class="inputGroup__textfield" type="hidden" name="orangethemes" value="">
               </div>
-              <div class="inputGroup inputGroup9">
+              <div class="inputGroup inputGroup7">
                 <button id="contactsubmitbtn" type="button" name="button">Send</button>
                 <!--<button id="contactsubmitbtn" class="g-recaptcha" data-sitekey="6LdDlgAdAAAAAJ4Rf6RT6mBzbaRBgFBmQbKqoA_-" data-callback='onSubmit' type="submit" name="button">Send</button>-->
               </div>
@@ -243,20 +234,21 @@ button {
         document.getElementById("contact-form").submit();
       }
       var _submitbtn = document.getElementById('contactsubmitbtn');
-      _submitbtn.addEventListener("click", function(e){
+     /* _submitbtn.addEventListener("click", function(e){
          // Create an XMLHttpRequest object
           const xhttp = new XMLHttpRequest();
-
+          var params = '';
+          let mail = new FormData(form);
           // Define a callback function
           xhttp.onload = function() {
             // Here you can use the Data
-            alert('submitted')
+            alert('submitted');
           }
 
           // Send a request
-          xhttp.open("GET", "https://mail.orangethemesandapps.com");
-          xhttp.send();
-      });
+          xhttp.open("POST", "https://mail.orangethemesandapps.com");
+          xhttp.send(params);
+      });*/
     </script>
     
   </body>
