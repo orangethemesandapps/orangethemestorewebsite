@@ -289,6 +289,8 @@ button {
         /*var _sendemailform = document.getElementById('sendemailform');
         _sendemailform.submit();
         window.location = 'https://orangethemesandapps.com';*/
+        _submitbtn.classList.add('spin');
+        _submitbtn.disabled = true;
         var _name = document.getElementById('name').value;
         var _replytoemail = document.getElementById('replytoemail').value;
         var _storeurl = document.getElementById('storeurl').value;
@@ -306,7 +308,7 @@ button {
           }
           if(xhr.readyState === 4) {
             //console.log(responseText);
-            //window.location = 'https://orangethemesandapps.com';
+            window.location = 'https://orangethemesandapps.com';
           }
         };
 
