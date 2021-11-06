@@ -300,12 +300,12 @@ button {
         "&messagetext=" + _messagetext;
 
         var xhr = new XMLHttpRequest();
-        this.xhr.onreadystatechange = function success() {
-          if (!this.xhr.readyState === 4 || !this.xhr.status === 200) {
+        xhr.onreadystatechange = function success() {
+          if (!xhr.readyState === 4 || !xhr.status === 200) {
             return;            
           }
-          if(this.xhr.readyState === 4) {
-            console.log(this.responseText);
+          if(xhr.readyState === 4) {
+            console.log(responseText);
             window.location = 'https://orangethemesandapps.com';
           }
         };
