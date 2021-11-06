@@ -221,7 +221,7 @@ button {
         <div class="contactForm">
           <form id="sendemailform" action="https://mail.orangethemesandapps.com/sendemail" method="post" id="contact-form">
               <div class="inputGroup inputGroup1">
-                <input class="inputGroup__textfield" type="text" name="name" value="" placeholder="Firstname*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" id="name" name="name" value="" placeholder="Firstname*" required data-value-missing="Please fill out this field.">
               </div>
       
               <!--<div class="inputGroup inputGroup2">
@@ -229,7 +229,7 @@ button {
               </div>-->
       
               <div class="inputGroup inputGroup2">
-                <input class="inputGroup__textfield" type="text" name="replytoemail" value="" placeholder="Email*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" id="replytoemail" name="replytoemail" value="" placeholder="Email*" required data-value-missing="Please fill out this field.">
               </div>
       
             <!--  <div class="inputGroup inputGroup3">
@@ -237,11 +237,11 @@ button {
               </div>
       -->
               <div class="inputGroup inputGroup3">
-                <input class="inputGroup__textfield" type="text" name="storeurl" value="" placeholder="Shopify Store URL*" required data-value-missing="Please fill out this field.">
+                <input class="inputGroup__textfield" type="text" id="storeurl" name="storeurl" value="" placeholder="Shopify Store URL*" required data-value-missing="Please fill out this field.">
               </div>
       
               <div class="inputGroup inputGroup4">
-                <textarea class="inputGroup__textfield" name="messagetext" rows="8" placeholder="How can we help?*" required data-value-missing="Please fill out this field."></textarea>
+                <textarea class="inputGroup__textfield" id="messagetext" name="messagetext" rows="8" placeholder="How can we help?*" required data-value-missing="Please fill out this field."></textarea>
               </div>
 
               <div class="inputGroup inputGroup5">
@@ -286,9 +286,33 @@ button {
       });
       function sendEmailFunction()
       {
-        var _sendemailform = document.getElementById('sendemailform');
+        /*var _sendemailform = document.getElementById('sendemailform');
         _sendemailform.submit();
-        window.location = 'https://orangethemesandapps.com';
+        window.location = 'https://orangethemesandapps.com';*/
+        var _name = document.getElementById('name').value;
+        var _replytoemail = document.getElementById('replytoemail').value;
+        var _storeurl = document.getElementById('storeurl').value;
+        var _messagetext = document.getElementById('messagetext').value;
+        
+        var maildata = "name=" + _name +
+        "&replytoemail=" + _replytoemail +
+        "&storeurl=" + _storeurl + 
+        "&messagetext=" + _messagetext;
+
+        var xhr = new XMLHttpRequest();
+        this.xhr.onreadystatechange = function success() {
+          if (!this.xhr.readyState === 4 || !this.xhr.status === 200) {
+            return;            
+          }
+          if(this.xhr.readyState === 4) {
+            console.log(this.responseText);
+            window.location = 'https://orangethemesandapps.com';
+          }
+        };
+
+        xhr.open("POST", "https://mail.orangethemesandapps.com/sendemail");   
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(maildata);
       }
       /*_submitbtn.addEventListener("click", function(e){
     var data = "name=Muthu&replytoemail=cupelapps%40gmail.com&storeurl=shopthelook.myshopify.com&messagetext=Hi%2C%20This%20is%20enquiry%20about%20theme%20feature%20sets.%20kindly%20explain%20the%20features%20sets.";
