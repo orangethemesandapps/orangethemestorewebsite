@@ -192,7 +192,7 @@ button {
     <div class="containerdiv">
     <section class="jumbotron jumbotron-fluid text-center">
       <div class="navbar navbar-dark navbar-static-top navbar-expand-lg" role="navbar">
-        <a href="../elegance/index.html" class="navbar-brand">
+        <a href="../elegance/index" class="navbar-brand">
           <!-- <img src="#" alt="Logo" /> -->
           ←	Go Home
         </a>
@@ -278,6 +278,8 @@ button {
       function onSubmit(token) {
         document.getElementById("contact-form").submit();
       }
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      alert(timezone); // Asia/Karachi
       var _submitbtn = document.getElementById('contactsubmitbtn');
       /*_submitbtn.addEventListener("click", function(e){
         _submitbtn.classList.add('spin');
