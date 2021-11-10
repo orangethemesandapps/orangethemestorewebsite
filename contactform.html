@@ -279,8 +279,8 @@ button {
         document.getElementById("contact-form").submit();
       }
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const timenow = Date.now();
-      alert(timezone + " Time NOW: " +timenow.toDateString()); // Asia/Karachi
+      const DateNow = Date.now();
+      alert(timezone + " Time NOW: " + new Date(DateNow).toString()); // Asia/Karachi
       var _submitbtn = document.getElementById('contactsubmitbtn');
       /*_submitbtn.addEventListener("click", function(e){
         _submitbtn.classList.add('spin');
